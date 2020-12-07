@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "verifytesttool": {
+      "hosting": {
+        "apitestertesting": [
+          "verifytesttool"
+        ]
+      }
+    }
+  }
+}
