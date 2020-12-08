@@ -1,9 +1,15 @@
-<h4>Basic mat-select</h4>
-<mat-form-field appearance="fill">
-  <mat-label>Favorite food</mat-label>
-  <mat-select>
-    <mat-option *ngFor="let food of foods" [value]="foodobs$ | async">
-      {{food.viewValue}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of (users$ | async) " [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

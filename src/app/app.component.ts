@@ -2,12 +2,6 @@ import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import {FormControl, Validators} from '@angular/forms';
 
-
-
-export interface Food{
-  value: string;
-}
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,14 +10,12 @@ export interface Food{
 export class AppComponent {
   title = 'apitestertesting';
 
-
-  foods: Food = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
+  
+    myControl = new FormControl();
+    options: String[] = ['One', 'Two', 'Three'];
+  
   constructor(){
-    const users$ = of(this.foods);
+    const users$ = of(this.options);
         
     users$.subscribe(
       data => {
