@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import {FormControl, Validators} from '@angular/forms';
 
-export interface collectiondoc{
-  fruits: string; 
- 
+
+
+export interface Food{
+  value: string;
 }
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,16 +16,18 @@ export interface collectiondoc{
 export class AppComponent {
   title = 'apitestertesting';
 
-  Testcollection: collectiondoc=
-  {
-    fruits : 'Apple'
 
-   }
+  foods: Food = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
   constructor(){
-    const names$ = of(this.Testcollection);
-    names$.subscribe(
-      data1 => {
-        console.log(data1);
+    const users$ = of(this.foods);
+        
+    users$.subscribe(
+      data => {
+        console.log(data);
       },
 
       error => console.log(error),
